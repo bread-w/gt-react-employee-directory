@@ -1,16 +1,34 @@
 import React, { Component } from "react";
 import API from "../utils/API";
+// import Alert from "../components/Alert";
+import Col from "../components/Col";
+import Container from "../components/Container";
+import Row from "../components/Row";
+// import SearchForm from "../components/SearchForm";
+// import SearchResults from "../components/SearchResults";
 
 class UserTable extends Component {
-  state = { users: [] };
+  state = {
+    users: [],
+  };
+
   componentDidMount() {
     API.getRandomPeople()
-      .then((res) => this.setState({ users: res.data.results }))
+      .then(
+        (res) =>
+          console.log(
+            res.data.results
+          ) /* this.setState({ users: res.data.results }) */
+      )
       .catch((err) => console.log(err));
   }
 
   handleInputChange = (event) => {
-    this.setState({ search: event.target.value });
+    const value = event.target.value;
+    const name = event.target.name;
+    this.setState({
+      [name]: value,
+    });
   };
 
   handleFormSubmit = (event) => {
@@ -26,7 +44,12 @@ class UserTable extends Component {
   render() {
     return (
       <div>
-        <p>Hello World!</p>
+        <Container>
+          <h1>Hello World!</h1>
+          <Row>
+            <Col size="md-2">{this.state.users}</Col>
+          </Row>
+        </Container>
       </div>
     );
   }
