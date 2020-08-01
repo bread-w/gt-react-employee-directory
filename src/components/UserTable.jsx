@@ -1,13 +1,12 @@
 import React, { Component } from "react";
-import axios from "axios";
+import API from "../utils/API"
 
 class UserTable extends Component {
   state = { users: [] };
   componentDidMount() {
-    axios.get("https://randomuser.me/api/?results=25").then((res) => {
-      console.log(res.data);
-      this.setState({ users: JSON.stringify(res.data.results) });
-    });
+    API.getRandomPerson()
+    .then(res => this.setState({ users: JSON.stringify(res.data.results) }))
+    .catch(err => console.log(err));
   }
   render() {
     return (
