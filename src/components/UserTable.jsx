@@ -32,15 +32,17 @@ class UserTable extends Component {
     this.setState({ filteredUsers });
   };
 
-  handleSortChange = (event) => {
+  handleSortChange = (keyA, keyB) => {
     console.log("Clicked");
-    const sortByName = this.state.users
-      .sort((userA, userB) => {
-        return userA.name.first - userB.name.first;
-      })
-      .map((user) => {
-        return user;
-      });
+    const sortByName = this.state.users.sort((userA, userB) => {
+      if (userA[keyA][keyB] > userB[keyA][keyB]) {
+        return 1;
+      } else if (userA[keyA][keyB] < userB[keyA][keyB]) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
     console.log(sortByName);
     this.setState({ users: sortByName });
   };
@@ -71,7 +73,7 @@ class UserTable extends Component {
               <p>Headshot</p>
             </div>
             <div className="col-sm-2">
-              <p onClick={this.handleSortChange}>Name</p>
+              <p onClick={() => this.handleSortChange("name", "first")}>Name</p>
             </div>
             <div className="col-sm-2">
               <p>Email</p>
@@ -80,10 +82,10 @@ class UserTable extends Component {
               <p>Phone</p>
             </div>
             <div className="col-sm-2">
-              <p>Age</p>
+              <p onClick={() => this.handleSortChange("dob", "age")}>Age</p>
             </div>
             <div className="col-sm-2">
-              <p>Nationality</p>
+              <p onClick={() => this.handleSortChange("location", "country")}>Nationality</p>
             </div>
           </div>
         </div>
