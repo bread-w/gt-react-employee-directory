@@ -48,8 +48,8 @@ class UserTable extends Component {
           <UserInfo
             name={user.name.first}
             email={user.email}
-            age={user.dob.age}
             phone={user.phone}
+            age={user.dob.age}
             nationality={user.location.country}
             src={user.picture.thumbnail}
           />
