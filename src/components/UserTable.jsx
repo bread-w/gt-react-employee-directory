@@ -7,18 +7,17 @@ import SearchForm from "./SearchForm";
 class UserTable extends Component {
   state = {
     users: [],
-    filteredUsers: []
+    filteredUsers: [],
   };
 
   componentDidMount() {
     API.getRandomPeople()
-      .then((res) =>{
-        console.log(
-            res.data.results
-          ) 
-          this.setState(
-          { users: res.data.results, filteredUsers: res.data.results }
-        )
+      .then((res) => {
+        console.log(res.data.results);
+        this.setState({
+          users: res.data.results,
+          filteredUsers: res.data.results,
+        });
       })
       .catch((err) => console.log(err));
   }
@@ -27,10 +26,10 @@ class UserTable extends Component {
     // console.log(event.target.value)
     const value = event.target.value;
     console.log(value);
-    const filteredUsers = this.state.users.filter(user=>{
-      return user.name.first.toLowerCase().indexOf(value.toLowerCase()) !== -1
-    })
-    this.setState({filteredUsers})
+    const filteredUsers = this.state.users.filter((user) => {
+      return user.name.first.toLowerCase().indexOf(value.toLowerCase()) !== -1;
+    });
+    this.setState({ filteredUsers });
   };
 
   handleFormSubmit = (event) => {
@@ -48,10 +47,36 @@ class UserTable extends Component {
     return (
       <div>
         <h1>Employee Directory</h1>
-        <SearchForm handleInputChange={this.handleInputChange} />
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-5">
+              <SearchForm handleInputChange={this.handleInputChange} />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-sm-2">
+              <p>Headshot</p>
+            </div>
+            <div className="col-sm-2">
+              <p>Name</p>
+            </div>
+            <div className="col-sm-2">
+              <p>Email</p>
+            </div>
+            <div className="col-sm-2">
+              <p>Phone</p>
+            </div>
+            <div className="col-sm-2">
+              <p>Age</p>
+            </div>
+            <div className="col-sm-2">
+              <p>Nationality</p>
+            </div>
+          </div>
+        </div>
         {this.state.filteredUsers.map((user) => (
           <UserInfo
-            key = {user.login.uuid}
+            key={user.login.uuid}
             first={user.name.first}
             last={user.name.last}
             email={user.email}

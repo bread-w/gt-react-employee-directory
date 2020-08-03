@@ -7,26 +7,6 @@ const UserInfo = (props) => {
   return (
     <div>
       <Container>
-        {/* <div className="row">
-          <div className="col-sm-2">
-            <p>Headshot</p>
-          </div>
-          <div className="col-sm-2">
-            <p>Name</p>
-          </div>
-          <div className="col-sm-2">
-            <p>Email</p>
-          </div>
-          <div className="col-sm-2">
-            <p>Phone</p>
-          </div>
-          <div className="col-sm-2">
-            <p>Age</p>
-          </div>
-          <div className="col-sm-2">
-            <p>Nationality</p>
-          </div>
-        </div> */}
         <Row>
           <Col size="md-2">
             <img alt={props.name} className="img-fluid" src={props.src} />
