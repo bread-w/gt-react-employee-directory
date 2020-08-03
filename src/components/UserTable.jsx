@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import UserInfo from "./UserInfo";
-// import SearchForm from "../components/SearchForm";
-// import SearchResults from "../components/SearchResults";
+// import SearchForm from "./SearchForm";
+// import SearchResults from "./SearchResults";
 
 class UserTable extends Component {
   state = {
@@ -11,7 +11,13 @@ class UserTable extends Component {
 
   componentDidMount() {
     API.getRandomPeople()
-      .then((res) => this.setState({ users: res.data.results }))
+      .then((res) =>
+        /* console.log(
+            res.data.results
+          ) */ this.setState(
+          { users: res.data.results }
+        )
+      )
       .catch((err) => console.log(err));
   }
 
@@ -41,10 +47,10 @@ class UserTable extends Component {
         {this.state.users.map((user) => (
           <UserInfo
             name={user.name.first}
-            email={user.name.email}
+            email={user.email}
             age={user.dob.age}
             phone={user.phone}
-            id={user.id.value}
+            nationality={user.location.country}
             src={user.picture.thumbnail}
           />
         ))}

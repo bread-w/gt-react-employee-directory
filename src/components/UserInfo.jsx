@@ -1,5 +1,4 @@
 import React from "react";
-// import Alert from "../components/Alert";
 import Col from "./Col";
 import Container from "./Container";
 import Row from "./Row";
@@ -26,7 +25,7 @@ const UserInfo = (props) => {
             <p>Phone: {props.phone}</p>
           </Col>
           <Col size="md-2">
-            <p>ID: {props.id}</p>
+            <p>Nationality: {props.nationality}</p>
           </Col>
         </Row>
       </Container>
