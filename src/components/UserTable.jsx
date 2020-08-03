@@ -32,6 +32,19 @@ class UserTable extends Component {
     this.setState({ filteredUsers });
   };
 
+  handleSortChange = (event) => {
+    console.log("Clicked");
+    const sortByName = this.state.users
+      .sort((userA, userB) => {
+        return userA.name.first - userB.name.first;
+      })
+      .map((user) => {
+        return user;
+      });
+    console.log(sortByName);
+    this.setState({ users: sortByName });
+  };
+
   handleFormSubmit = (event) => {
     API.getRandomPeople(this.state.search)
       .then((res) => {
@@ -58,7 +71,7 @@ class UserTable extends Component {
               <p>Headshot</p>
             </div>
             <div className="col-sm-2">
-              <p>Name</p>
+              <p onClick={this.handleSortChange}>Name</p>
             </div>
             <div className="col-sm-2">
               <p>Email</p>
