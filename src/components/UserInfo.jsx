@@ -3,29 +3,50 @@ import Col from "./Col";
 import Container from "./Container";
 import Row from "./Row";
 
-
 const UserInfo = (props) => {
   return (
     <div>
       <Container>
+        {/* <div className="row">
+          <div className="col-sm-2">
+            <p>Headshot</p>
+          </div>
+          <div className="col-sm-2">
+            <p>Name</p>
+          </div>
+          <div className="col-sm-2">
+            <p>Email</p>
+          </div>
+          <div className="col-sm-2">
+            <p>Phone</p>
+          </div>
+          <div className="col-sm-2">
+            <p>Age</p>
+          </div>
+          <div className="col-sm-2">
+            <p>Nationality</p>
+          </div>
+        </div> */}
         <Row>
           <Col size="md-2">
             <img alt={props.name} className="img-fluid" src={props.src} />
           </Col>
           <Col size="md-2">
-            <p>Name: {props.first} {props.last}</p>
+            <p>
+              {props.first} {props.last}
+            </p>
           </Col>
           <Col size="md-2">
-            <p>Email: {props.email}</p>
+            <p>{props.email}</p>
           </Col>
           <Col size="md-2">
-            <p>Phone: {props.phone}</p>
+            <p>{props.phone}</p>
           </Col>
           <Col size="md-2">
-            <p>Age: {props.age}</p>
+            <p>{props.age}</p>
           </Col>
           <Col size="md-2">
-            <p>Nationality: {props.nationality}</p>
+            <p>{props.nationality}</p>
           </Col>
         </Row>
       </Container>
