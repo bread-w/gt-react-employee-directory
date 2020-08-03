@@ -13,7 +13,7 @@ const UserInfo = (props) => {
             <img alt={props.name} className="img-fluid" src={props.src} />
           </Col>
           <Col size="md-2">
-            <p>First Name: {props.name}</p>
+            <p>Name: {props.first} {props.last}</p>
           </Col>
           <Col size="md-2">
             <p>Email: {props.email}</p>
