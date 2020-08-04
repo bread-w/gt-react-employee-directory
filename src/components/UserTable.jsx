@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import "./UserTable.css";
 import API from "../utils/API";
 import UserInfo from "./UserInfo";
 import SearchForm from "./SearchForm";
+
 
 class UserTable extends Component {
   state = {
@@ -23,7 +25,6 @@ class UserTable extends Component {
   }
 
   handleInputChange = (event) => {
-    // console.log(event.target.value)
     const value = event.target.value;
     console.log(value);
     const filteredUsers = this.state.users.filter((user) => {
@@ -72,36 +73,42 @@ class UserTable extends Component {
 
   render() {
     return (
-      <div>
+      <div className="userTable">
         <h1>Employee Directory</h1>
         <div className="container">
           <div className="row">
-            <div className="col-sm-5">
+          <div className="col-sm-4"></div>
+            <div className="col-sm-4">
               <SearchForm handleInputChange={this.handleInputChange} />
             </div>
+            <div className="col-sm-4"></div>
           </div>
           <div className="row">
             <div className="col-sm-2">
-              <p>Headshot</p>
+              <h3>Headshot</h3>
             </div>
             <div className="col-sm-2">
-              <p onClick={this.handleSortChange}>
+             
+              <h3 onClick={this.handleSortChange}>
                 Name
+                <button className="sorter">
                 {!this.state.sort && <span> &#8963;</span>}
                 {this.state.sort && <span> &#8964;</span>}
-              </p>
+                </button>
+              </h3>
+              
             </div>
             <div className="col-sm-2">
-              <p>Email</p>
+              <h3>Email</h3>
             </div>
             <div className="col-sm-2">
-              <p>Phone</p>
+              <h3>Phone</h3>
             </div>
             <div className="col-sm-2">
-              <p>Age</p>
+              <h3>Age</h3>
             </div>
             <div className="col-sm-2">
-              <p>Nationality</p>
+              <h3>Nationality</h3>
             </div>
           </div>
         </div>

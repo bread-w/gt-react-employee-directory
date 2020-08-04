@@ -1,0 +1,27 @@
+.userTable {
+    background-color: #1a1a1b;
+}
+
+.userTable .row {
+    background-color: 
+    #c3c9cd;
+    border-style: solid;
+}
+
+.userTable h1 {
+    color: whitesmoke;
+    padding-bottom: 20px;
+}
+
+.userTable h3 {
+padding: 20px;
+}
+
+.userTable p {
+    overflow: hidden;
+    font-weight: bold;
+}
+
+.userTable .sorter {
+    border-style: double;
+}
